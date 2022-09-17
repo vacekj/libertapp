@@ -5,9 +5,9 @@ import { Appbar } from './Appbar'
 export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
-      <div tw="flex grow">
-        <Appbar tw="w-[90px] shrink-0 grow-0" />
-        <main tw="grow">{children}</main>
+      <div tw="flex grow relative h-screen overflow-hidden">
+        <Appbar tw="w-[90px] h-full overflow-scroll shrink-0 grow-0" />
+        <main tw="h-full overflow-scroll grow">{children}</main>
       </div>
     </>
   )

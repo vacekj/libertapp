@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import tw, { styled } from 'twin.macro'
 
 const TagFilterButton = styled.button(({ isSelected }: any) => [
-  tw`border border-white/10 text-white/50 rounded leading-none py-0.5 px-1 mx-1 my-1 tracking-wider`,
+  tw`border border-white/10 text-white/50 rounded leading-none py-0.5 px-1 mx-1 my-1 tracking-wide`,
   isSelected ? tw`bg-white text-black` : tw`hover:(text-white/80 border-white/50)`,
 ])
 
