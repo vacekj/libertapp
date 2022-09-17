@@ -1,3 +1,4 @@
+import { Tooltip } from '@chakra-ui/react'
 import { ALL_APP_ITEMS, AppItem } from '@models/AppItem.model'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -5,8 +6,10 @@ import { useRouter } from 'next/router'
 import { FC, PropsWithChildren, useEffect, useState } from 'react'
 import 'twin.macro'
 import tw, { theme } from 'twin.macro'
+import { Confetti } from './Confetti'
 
 const Appbar: FC<PropsWithChildren> = ({ children, ...props }) => {
+  const [showConfetti, setShowConfetti] = useState(false)
   const homeItem: AppItem = {
     id: 'home',
     name: 'Home',
@@ -16,6 +19,8 @@ const Appbar: FC<PropsWithChildren> = ({ children, ...props }) => {
 
   return (
     <>
+      {showConfetti && <Confetti />}
+
       <nav tw="flex flex-col bg-black/50 text-white py-5 select-none" {...props}>
         <div tw="flex flex-col items-center space-y-3">
           <AppbarItem isHome={true} item={homeItem} href="/" />
@@ -25,11 +30,20 @@ const Appbar: FC<PropsWithChildren> = ({ children, ...props }) => {
           ))}
         </div>
         <div tw="mt-auto text-center">
-          <Link href="https://www.youtube.com/watch?v=iFQKbEhzcmc" passHref>
-            <a target="_blank" tw="opacity-25 cursor-pointer hover:(opacity-100 text-primary)">
+          <Tooltip label="Happy Merge">
+            <button
+              onClick={() => {
+                if (showConfetti) return
+                setShowConfetti(true)
+                setTimeout(() => {
+                  setShowConfetti(false)
+                }, 4000)
+              }}
+              tw="opacity-25 cursor-pointer transition-all hover:(opacity-100 text-primary scale-125)"
+            >
               🐼
-            </a>
-          </Link>
+            </button>
+          </Tooltip>
         </div>
       </nav>
     </>
@@ -53,13 +67,6 @@ export const AppbarItem: FC<AppbarItemProps> = ({ isHome, item, href, ...props }
     <>
       <Link href={href} passHref>
         <a tw="relative">
-          {/* <Tooltip
-            label={!isHome && item.name}
-            placement="bottom"
-            left="30px"
-            ml="30px"
-            gutter={10}
-          > */}
           <div
             css={[
               tw`flex items-center justify-center ring-[.2rem] ring-transparent border-[.2rem] border-transparent rounded-2xl shadow-lg w-[60px] h-[60px]`,
@@ -68,15 +75,16 @@ export const AppbarItem: FC<AppbarItemProps> = ({ isHome, item, href, ...props }
               isHome && tw`bg-primary/80 hover:(bg-primary/100)`,
               isHome && isActive && tw`bg-primary/100 border-black`,
             ]}
+            className="group"
           >
             <Image
               src={item.iconPath}
               width={isHome ? '30px' : '40px'}
               height={isHome ? '30px' : '40px'}
               alt={item.name}
+              css={[item.id === 'tornado' && tw`group-hover:animate-spin`]}
             />
           </div>
-          {/* </Tooltip> */}
         </a>
       </Link>
     </>

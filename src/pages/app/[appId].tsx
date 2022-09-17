@@ -2,8 +2,8 @@ import { ArrowLeftIcon, ArrowPathIcon, ArrowRightIcon } from '@heroicons/react/2
 import { ALL_APP_ITEMS } from '@models/AppItem.model'
 import { useRouter } from 'next/router'
 
-import 'twin.macro'
 import { useRef } from 'react'
+import 'twin.macro'
 
 function App() {
   const router = useRouter()
@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       {/* Actionbar */}
-      <div tw="sticky inset-0 bottom-auto bg-black py-2.5 px-2 select-none z-10!">
+      <div tw="sticky inset-0 bottom-auto bg-black/50 py-2.5 px-2 select-none z-10!">
         <div tw="flex justify-center items-center space-x-4">
           <button
             onClick={() => {
