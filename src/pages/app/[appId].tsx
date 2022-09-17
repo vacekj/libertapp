@@ -1,4 +1,3 @@
-import { CenterBody } from '@components/CenterBody'
 import { ALL_APP_ITEMS } from '@models/AppItem.model'
 import { useRouter } from 'next/router'
 import 'twin.macro'
@@ -14,10 +13,7 @@ function App() {
 
   return (
     <>
-      <CenterBody>
-        <div>App: {app?.name}</div>
-        <iframe src={`/apps/${app.id}/index.html`} width={'100%'} height={'100%'} />
-      </CenterBody>
+      <iframe src={`/apps/${app.id}/index.html`} width={'100%'} height={'100%'} />
     </>
   )
 }

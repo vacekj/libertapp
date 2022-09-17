@@ -5,6 +5,9 @@ Censorship-resistant protocol frontends.
 ## Getting Started
 
 ```bash
+# Install Rust (https://www.rust-lang.org/tools/install)
+# Install Node
+
 # Install pnpm
 npm i -g pnpm
 
