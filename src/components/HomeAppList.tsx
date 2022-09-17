@@ -47,7 +47,7 @@ export const HomeAppListItem: FC<HomeAppListItemProps> = ({ item, href, ...props
               {(item.tags || []).map((tag) => (
                 <div
                   key={`${item.name}/${tag}`}
-                  tw="border border-white/10 text-white/50 rounded leading-none py-0.5 px-1"
+                  tw="border border-white/10 text-white/50 rounded leading-none tracking-wide py-0.5 px-1"
                 >
                   {tag}
                 </div>

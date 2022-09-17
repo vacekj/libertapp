@@ -54,8 +54,9 @@ export const AppbarItem: FC<AppbarItemProps> = ({ isHome, item, href, ...props }
         <a
           css={[
             tw`flex items-center justify-center ring-[.2rem] ring-transparent border-[.2rem] border-transparent rounded-2xl bg-white/10 shadow-lg w-[60px] h-[60px]`,
-            isHome && tw`bg-primary border-black`,
             isActive && `--tw-ring-color: ${item.brandColor};`,
+            isHome && tw`bg-primary`,
+            isHome && isActive && tw`border-black`,
           ]}
         >
           <Image
