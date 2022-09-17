@@ -6,7 +6,7 @@ import { FC, PropsWithChildren, useEffect, useState } from 'react'
 import 'twin.macro'
 import tw, { theme } from 'twin.macro'
 
-export const Appbar: FC<PropsWithChildren> = ({ children, ...props }) => {
+const Appbar: FC<PropsWithChildren> = ({ children, ...props }) => {
   const homeItem: AppItem = {
     id: 'home',
     name: 'Home',
@@ -41,6 +41,7 @@ export interface AppbarItemProps {
   item: AppItem
   href: string
 }
+
 export const AppbarItem: FC<AppbarItemProps> = ({ isHome, item, href, ...props }) => {
   const router = useRouter()
   const [isActive, setIsActive] = useState(false)
@@ -70,3 +71,5 @@ export const AppbarItem: FC<AppbarItemProps> = ({ isHome, item, href, ...props }
     </>
   )
 }
+
+export default Appbar

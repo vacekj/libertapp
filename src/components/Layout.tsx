@@ -1,6 +1,10 @@
 import { FC, PropsWithChildren } from 'react'
 import 'twin.macro'
-import { Appbar } from './Appbar'
+import dynamic from 'next/dynamic'
+
+const Appbar = dynamic(() => import('./Appbar'), {
+  ssr: false,
+})
 
 export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (

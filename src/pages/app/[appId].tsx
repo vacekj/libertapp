@@ -3,11 +3,13 @@ import { ALL_APP_ITEMS } from '@models/AppItem.model'
 import { useRouter } from 'next/router'
 
 import 'twin.macro'
+import { useRef } from 'react'
 
 function App() {
   const router = useRouter()
   const { query } = router
   const { appId } = query
+  const ref = useRef<HTMLIFrameElement | undefined>()
   const app = ALL_APP_ITEMS.find((app) => app.id === appId)
   if (!app) {
     return null
@@ -20,23 +22,26 @@ function App() {
         <div tw="flex justify-center items-center space-x-4">
           <button
             onClick={() => {
-              window.history.back()
+              ref.current?.contentWindow.history.back()
             }}
             tw="opacity-50 cursor-pointer transition-all hover:opacity-100"
           >
             <ArrowLeftIcon tw="h-5 w-5" />
           </button>
-          {/*<button onClick={() => {*/}
-          {/*  window.history.forward();*/}
-          {/*}} tw="opacity-50 cursor-pointer transition-all hover:opacity-100">*/}
-          {/*  <ArrowRightIcon tw="h-5 w-5" />*/}
-          {/*</button>*/}
+          <button
+            onClick={() => {
+              ref.current?.contentWindow.history.back()
+            }}
+            tw="opacity-50 cursor-pointer transition-all hover:opacity-100"
+          >
+            <ArrowRightIcon tw="h-5 w-5" />
+          </button>
           <div tw="bg-white/10 rounded-lg py-0.5 px-3 text-white/50 text-center w-[18rem] text-ellipsis overflow-hidden">
             {window.location.toString()}
           </div>
           <button
             onClick={() => {
-              router.reload()
+              ref.current?.contentWindow.location.reload()
             }}
             tw="opacity-50 cursor-pointer transition-all hover:opacity-100"
           >
@@ -46,7 +51,7 @@ function App() {
       </div>
 
       {/* DApp-Frontend in iFrame */}
-      <iframe src={`/apps/${app.id}/index.html`} width={'100%'} height={'100%'} />
+      <iframe ref={ref} src={`/apps/${app.id}/index.html`} width={'100%'} height={'100%'} />
     </>
   )
 }
