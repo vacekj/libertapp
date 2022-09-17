@@ -33,7 +33,7 @@ export const ALL_APP_ITEMS: AppItem[] = [
     description:
       'Fully decentralized cryptocurrency tumbler that mixes funds with others, so as to obscure the trail back to the funds.',
     tags: ['DeFi', 'Privacy'],
-    changes: ['Made it great again', 'Made it faster'],
+    changes: ['Uses non-censoring SecureRPC endpoints', 'Updated to faster libraries'],
     iconPath: '/logos/tornado.svg',
     brandColor: '#8EF1AC',
     isFetched: true,
@@ -44,7 +44,7 @@ export const ALL_APP_ITEMS: AppItem[] = [
     description:
       'A protocol to create non-custodial liquidity markets to earn interest on supplying and borrowing assets with a variable or stable interest rate.',
     tags: ['DeFi', 'Yield'],
-    changes: ['Made it great again', 'Made it faster'],
+    changes: ["Removed TRM censorship code - you're free to use with whatever address you want"],
     iconPath: '/logos/aave.svg',
     brandColor: '#a95fa3',
     isFetched: true,
@@ -54,7 +54,7 @@ export const ALL_APP_ITEMS: AppItem[] = [
     name: 'Uniswap V3',
     description: 'Uniswap is a decentralized, non-custodial cryptocurrency exchange (or DEX).',
     tags: ['DeFi', 'DEX'],
-    changes: ['Made it great again', 'Made it faster'],
+    changes: ['Removed address blocklist', 'Removed Analytics and tracking'],
     iconPath: '/logos/uniswap.svg',
     brandColor: '#ff007a',
     isFetched: true,

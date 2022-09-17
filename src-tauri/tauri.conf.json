@@ -67,7 +67,8 @@
         "width": 1024,
         "height": 768,
         "transparent": true,
-        "decorations": true
+        "decorations": true,
+        "theme": "Dark"
       }
     ]
   }
