@@ -1,0 +1,34 @@
+{
+  "files.exclude": {
+    "**/node_modules/": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/yarn.lock": true,
+    "**/yarn-error.log": true,
+    "**/.yarn": true,
+    "**/.turbo": true,
+    "**/.next": true,
+    "public/apps/": true
+  },
+  "search.useIgnoreFiles": true,
+  "search.useGlobalIgnoreFiles": true,
+  "search.useParentIgnoreFiles": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll.eslint": true
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "peacock.color": "#90f6b9",
+  "workbench.colorCustomizations": {
+    "sash.hoverBorder": "#bffad7",
+    "statusBar.background": "#90f6b9",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#61f29b",
+    "statusBarItem.remoteBackground": "#90f6b9",
+    "statusBarItem.remoteForeground": "#15202b"
+  }
+}
