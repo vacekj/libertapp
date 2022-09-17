@@ -13,6 +13,7 @@ specifiers:
   '@tailwindcss/typography': ^0.5.7
   '@tauri-apps/api': ^1.1.0
   '@tauri-apps/cli': ^1.1.1
+  '@tauri-apps/cli-darwin-x64': ^1.1.1
   '@types/node': ^18.7.18
   '@types/react': ^18.0.20
   '@types/react-dom': ^18.0.6
@@ -45,6 +46,7 @@ dependencies:
   '@emotion/server': 11.10.0_@emotion+css@11.10.0
   '@emotion/styled': 11.10.4_sn4wuyy54zwps25tv4w7lbiz6i
   '@tauri-apps/api': 1.1.0
+  '@tauri-apps/cli-darwin-x64': 1.1.1
   autoprefixer: 10.4.11_postcss@8.4.16
   framer-motion: 7.3.5_biqbaboplfbrettd7655fr4n2y
   next: 12.3.0_jvbsf4ywey4j6wksuaasc2vsc4
@@ -1911,8 +1913,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: true
-    optional: true
 
   /@tauri-apps/cli-linux-arm-gnueabihf/1.1.1:
     resolution: {integrity: sha512-LYlvdAd73cq+yTi6rw7j/DWIvDpeApwgQkIn+HYsNNeFhyFmABU7tmw+pekK3W3nHAkYAJ69Rl4ZdoxdNGKmHg==}
