@@ -41,7 +41,11 @@ function App() {
           </div>
           <button
             onClick={() => {
-              ref.current?.contentWindow.location.reload()
+              if (app.id === 'tornado') {
+                window.location.reload()
+              } else {
+                ref.current?.contentWindow.location.reload()
+              }
             }}
             tw="opacity-50 cursor-pointer transition-all hover:opacity-100"
           >
