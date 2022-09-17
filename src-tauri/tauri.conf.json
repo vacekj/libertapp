@@ -54,7 +54,7 @@
     },
     "security": {
       "dangerousDisableAssetCspModification": true,
-      "csp": "base-uri 'self' 'localhost:1420/apps/tornado' default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
+      "csp": "base-uri 'self' ' http://localhost:1420/apps/tornado/' default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
     },
     "updater": {
       "active": false
