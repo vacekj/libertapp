@@ -30,7 +30,7 @@ const Appbar: FC<PropsWithChildren> = ({ children, ...props }) => {
           ))}
         </div>
         <div tw="mt-auto text-center">
-          <Tooltip label="Happy Merge">
+          <Tooltip label="Happy Merge" closeOnClick={false}>
             <button
               onClick={() => {
                 if (showConfetti) return
