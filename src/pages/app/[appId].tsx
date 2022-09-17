@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       {/* Actionbar */}
-      <div tw="sticky inset-0 bottom-auto bg-black/50 py-2.5 px-2 select-none">
+      <div tw="sticky inset-0 bottom-auto bg-black py-2.5 px-2 select-none z-10!">
         <div tw="flex justify-center items-center space-x-4">
           <button
             onClick={() => {

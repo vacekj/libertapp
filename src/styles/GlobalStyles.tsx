@@ -1,4 +1,5 @@
 import { Global } from '@emotion/react'
+import 'nprogress/nprogress.css'
 import tw, { css, GlobalStyles as BaseStyles } from 'twin.macro'
 
 const customStyles = css`
@@ -11,6 +12,14 @@ const customStyles = css`
   }
   #__next {
     ${tw`h-full relative flex flex-col`}
+  }
+
+  /* Progress Bar */
+  #nprogress > .bar {
+    ${tw`bg-white`}
+  }
+  #nprogress > .spinner {
+    ${tw`hidden!`}
   }
 
   /* Fonts */
@@ -37,14 +46,6 @@ const customStyles = css`
     font-weight: bold;
     font-style: normal;
     font-display: swap;
-  }
-
-  /* Pixelated Images */
-  .pixel-img {
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-    image-rendering: -webkit-optimize-contrast;
   }
 `
 
