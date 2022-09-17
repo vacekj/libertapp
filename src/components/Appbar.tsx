@@ -19,7 +19,7 @@ const Appbar: FC<PropsWithChildren> = ({ children, ...props }) => {
       <nav tw="flex flex-col bg-black/50 text-white py-5 select-none" {...props}>
         <div tw="flex flex-col items-center space-y-3">
           <AppbarItem isHome={true} item={homeItem} href="/" />
-          <div tw="w-[1.25rem] h-[.15rem] rounded-full bg-white/10" />
+          <div tw="w-[1.25rem] h-[.15rem] rounded-full bg-white/10 mb-3! mt-6!" />
           {ALL_APP_ITEMS.filter((item) => item.isFetched).map((item) => (
             <AppbarItem key={item.id} item={item} href={`/app/${item.id}`} />
           ))}
@@ -52,20 +52,31 @@ export const AppbarItem: FC<AppbarItemProps> = ({ isHome, item, href, ...props }
   return (
     <>
       <Link href={href} passHref>
-        <a
-          css={[
-            tw`flex items-center justify-center ring-[.2rem] ring-transparent border-[.2rem] border-transparent rounded-2xl bg-white/10 shadow-lg w-[60px] h-[60px]`,
-            isActive && `--tw-ring-color: ${item.brandColor};`,
-            isHome && tw`bg-primary`,
-            isHome && isActive && tw`border-black`,
-          ]}
-        >
-          <Image
-            src={item.iconPath}
-            width={isHome ? '30px' : '40px'}
-            height={isHome ? '30px' : '40px'}
-            alt={item.name}
-          />
+        <a tw="relative">
+          {/* <Tooltip
+            label={!isHome && item.name}
+            placement="bottom"
+            left="30px"
+            ml="30px"
+            gutter={10}
+          > */}
+          <div
+            css={[
+              tw`flex items-center justify-center ring-[.2rem] ring-transparent border-[.2rem] border-transparent rounded-2xl shadow-lg w-[60px] h-[60px]`,
+              tw`bg-white/10 transition-all cursor-pointer hover:(bg-white/20)`,
+              isActive && `--tw-ring-color: ${item.brandColor};`,
+              isHome && tw`bg-primary/80 hover:(bg-primary/100)`,
+              isHome && isActive && tw`bg-primary/100 border-black`,
+            ]}
+          >
+            <Image
+              src={item.iconPath}
+              width={isHome ? '30px' : '40px'}
+              height={isHome ? '30px' : '40px'}
+              alt={item.name}
+            />
+          </div>
+          {/* </Tooltip> */}
         </a>
       </Link>
     </>

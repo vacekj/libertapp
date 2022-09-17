@@ -1,3 +1,4 @@
+import { ShieldCheckIcon } from '@heroicons/react/24/solid'
 import { AppItem } from '@models/AppItem.model'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -41,8 +42,9 @@ export const HomeAppListItem: FC<HomeAppListItemProps> = ({ item, href, ...props
           tw="grow-0 shrink-0 select-none"
         />
         <div tw="grow flex flex-col">
-          <div tw="flex items-center">
-            <h2 tw="text-2xl mr-3">{item.name}</h2>
+          {/* Title, Tags, and Description */}
+          <div tw="flex items-center mb-1">
+            <h2 tw="text-2xl leading-none mr-3">{item.name}</h2>
             <div tw="flex space-x-1">
               {(item.tags || []).map((tag) => (
                 <div
@@ -57,7 +59,23 @@ export const HomeAppListItem: FC<HomeAppListItemProps> = ({ item, href, ...props
           {item.description && (
             <p tw="font-sans text-sm opacity-50 max-w-prose">{item.description}</p>
           )}
+
+          {/* Encorporated Frontend Changes */}
+          <div tw="flex flex-wrap -my-1 -mx-1.5 mt-2">
+            {!!item.changes?.length && (
+              <>
+                {item.changes.map((change) => (
+                  <div key={change} tw="flex justify-center text-sm items-center my-1 mx-1.5 ">
+                    <ShieldCheckIcon tw="h-4 w-4 text-primary mr-1" />
+                    {change}
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
         </div>
+
+        {/* Action Button (Open, Download) */}
         <div>
           {item.isFetched ? (
             <Link href={`/app/${item.id}`} passHref>
@@ -66,7 +84,10 @@ export const HomeAppListItem: FC<HomeAppListItemProps> = ({ item, href, ...props
               </a>
             </Link>
           ) : (
-            <button tw="whitespace-nowrap text-xl bg-white/80 text-black py-2 px-4 rounded-md transition-all shadow-lg hover:(bg-white/60)">
+            <button
+              tw="whitespace-nowrap text-xl bg-white/80 text-black py-2 px-4 rounded-md transition-all shadow-lg"
+              disabled
+            >
               Download
             </button>
           )}
