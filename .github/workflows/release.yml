@@ -2,6 +2,8 @@ name: 'My Workflow'
 
 on: workflow_dispatch
 
+env:
+      NEXT_PUBLIC_DUNE_API: ${{ secrets.NEXT_PUBLIC_DUNE_API }}
 
 jobs:
   create-release:
